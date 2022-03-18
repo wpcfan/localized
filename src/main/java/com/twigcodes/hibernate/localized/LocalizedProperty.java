@@ -4,6 +4,7 @@ import lombok.*;
 import org.hibernate.Hibernate;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -18,7 +19,8 @@ import java.util.UUID;
  * @since 0.1
  */
 @Entity
-@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"tableName", "instance", "locale", "field"}))
+@Table(name = "com_twigcodes_hibernate_localized_property",
+        uniqueConstraints = @UniqueConstraint(columnNames = {"tableName", "instance", "locale", "field"}))
 @DynamicInsert
 @DynamicUpdate
 @Getter
