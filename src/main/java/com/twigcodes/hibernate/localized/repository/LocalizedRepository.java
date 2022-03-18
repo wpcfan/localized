@@ -70,7 +70,7 @@ public abstract class LocalizedRepository<T extends SharedSessionContract> {
     }
 
     private Locale getBaseLocale(Locale locale) {
-        if (!StringUtils.isEmpty(locale.getCountry())) {
+        if (StringUtils.hasLength(locale.getCountry())) {
             return Locale.forLanguageTag(locale.getLanguage());
         }
         return null;

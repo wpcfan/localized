@@ -9,6 +9,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Locale;
 import java.util.Objects;
+import java.util.UUID;
 
 /**
  * Entity for storing @{@link Localized} fields of an arbitrary entity.
@@ -24,7 +25,6 @@ import java.util.Objects;
 @Setter
 @RequiredArgsConstructor
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
 public class LocalizedProperty implements Serializable {
     private static final long serialVersionUID = -7994792168226645324L;
@@ -37,6 +37,7 @@ public class LocalizedProperty implements Serializable {
     private Locale locale;
     private String field;
     @Lob
+    @Column(name = "field_value")
     private String value;
 
     @Override
