@@ -31,7 +31,7 @@ This looks promising. But how does Hibernate know which `Locale` is relevant?
 
 ## LocaleResolver
 That's the job of a `LocaleResolver` implementation. Implement or choose one
-from the package `io.github.deathman.localized.locale_resolver`. There are several
+from the package `com.twigcodes.hibernate.localized.locale_resolver`. There are several
 ways of registering the LocaleResolver:
 
 Specify the fully qualified class name in the hibernate property 
@@ -72,7 +72,7 @@ replacing and storing transparently the `@Localized` fields.This concept increas
 communication. Do not use `@Localized` when performance is a concern.
 
 Some concepts of original realisation have been remade. 
-* Type of field 'value' is String now instead of @Lob.
+* Type of field 'value' changed back to @Lob.
 * Reference by type is replaced with refenrence by table name to simplify inserting by SQL. 
 * If no translation found for locale default value of field is used.
 

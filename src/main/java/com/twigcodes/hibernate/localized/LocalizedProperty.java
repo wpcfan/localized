@@ -36,6 +36,7 @@ public class LocalizedProperty implements Serializable {
     private String instance;
     private Locale locale;
     private String field;
+    @Lob
     private String value;
 
     @Override
