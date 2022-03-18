@@ -32,7 +32,7 @@ dependencies {
     implementation("org.slf4j:slf4j-api:${property('slf4j.version')}")
     implementation("org.hibernate:hibernate-core:${property('hibernate.version')}")
     runtimeOnly "com.h2database:h2:${property('h2.version')}"
-    compileOnly("org.springframework:spring-context:${property('spring.version')}")
+    implementation("org.springframework:spring-context:${property('spring.version')}")
     testImplementation("junit:junit:${property('junit.version')}")
     testImplementation("org.assertj:assertj-core:${property('assertj.version')}")
     testImplementation("uk.org.lidalia:slf4j-test:${property('slf4j.test.version')}")

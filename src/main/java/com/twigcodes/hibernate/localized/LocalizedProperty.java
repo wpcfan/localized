@@ -24,7 +24,6 @@ import java.util.Objects;
 @Setter
 @RequiredArgsConstructor
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
 public class LocalizedProperty implements Serializable {
     private static final long serialVersionUID = -7994792168226645324L;
