@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/deathman92/localized.svg?branch=master)](https://travis-ci.org/deathman92/localized)
 [ ![Download](https://api.bintray.com/packages/deathman92/maven-release/localized/images/download.svg) ](https://bintray.com/deathman92/maven-release/localized/_latestVersion)
  
-Rewriting https://github.com/malkusch/localized project for my own needs. Now support Hibernate 5.2.2.Final. Other versions weren't tested.
+Rewriting https://github.com/deathman92/localized project for my own needs. Now support Hibernate 5.6.5.Final. Other versions weren't tested.
 
 # @Localized
 Internationalization (i18n) is so boring. There is no one single best
@@ -39,7 +39,9 @@ Specify the fully qualified class name in the hibernate property
 ```xml
 <property name="hibernate.listeners.localized.locale_resolver">com.github.deathman92.localized.locale_resolver.SpringLocaleResolver</property>
 ``` 
+
 Register it programmatically:
+
 ```java
 LocalizedIntegrator.setLocaleResolver(new SpringLocaleResolver());
 ```
@@ -47,19 +49,19 @@ LocalizedIntegrator.setLocaleResolver(new SpringLocaleResolver());
 # Gradle
 ```groovy
 repositories {
- jcenter()
+ mavenCentral()
 }
 
 dependencies {
- compile("com.github.deathman92.localized:localized:1.0.0")
+ compile("com.twigcodes.hibernate:localized:1.0.1")
 }
 ```
 # Maven
 ```xml
 <dependency>
-  <groupId>com.github.deathman92.localized</groupId>
+  <groupId>com.twigcodes.hibernate</groupId>
   <artifactId>localized</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
 </dependency>
 ```
 
@@ -81,8 +83,8 @@ events. In between nothing happens. I.e. you have to fix the locale at Session b
 a session you have to synchronize the entities with `Session.flush()` and `Session.refresh(Object)`.
 
 # Dependencies
-* org.hibernate:hibernate-core:5.2.2.Final
-* org.springframework:spring-context:4.3.2.RELEASE
+* org.hibernate:hibernate-core:5.6.5.Final
+* org.springframework:spring-context:5.3.17
 
 Other versions weren't tested.
 
