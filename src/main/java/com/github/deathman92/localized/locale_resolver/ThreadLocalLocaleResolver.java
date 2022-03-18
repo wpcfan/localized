@@ -16,7 +16,7 @@ import java.util.Locale;
  */
 public class ThreadLocalLocaleResolver implements LocaleResolver {
 
-    private ThreadLocal<Locale> locales = new ThreadLocal<>();
+    private final ThreadLocal<Locale> locales = new ThreadLocal<>();
 
     public void setLocale(Locale locale) {
         locales.set(locale);
@@ -26,7 +26,7 @@ public class ThreadLocalLocaleResolver implements LocaleResolver {
     public Locale resolveLocale(Session session) throws UnresolvedLocaleException {
         Locale locale = locales.get();
         if (locale == null) {
-            throw new UnresolvedLocaleException("he current thread didn't call setLocale() before.");
+            throw new UnresolvedLocaleException("The current thread didn't call setLocale() before.");
         }
         return locale;
     }
