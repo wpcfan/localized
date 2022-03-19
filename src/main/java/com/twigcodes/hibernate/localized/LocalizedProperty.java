@@ -4,13 +4,11 @@ import lombok.*;
 import org.hibernate.Hibernate;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Locale;
 import java.util.Objects;
-import java.util.UUID;
 
 /**
  * Entity for storing @{@link Localized} fields of an arbitrary entity.
@@ -19,8 +17,11 @@ import java.util.UUID;
  * @since 0.1
  */
 @Entity
-@Table(name = "com_twigcodes_hibernate_localized_property",
-        uniqueConstraints = @UniqueConstraint(columnNames = {"tableName", "instance", "locale", "field"}))
+@Table(
+        name = "localized_property",
+        uniqueConstraints = @UniqueConstraint(columnNames = {
+                "table_name", "instance", "locale", "field"
+        }))
 @DynamicInsert
 @DynamicUpdate
 @Getter
@@ -34,6 +35,7 @@ public class LocalizedProperty implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "table_name")
     private String tableName;
     private String instance;
     private Locale locale;
